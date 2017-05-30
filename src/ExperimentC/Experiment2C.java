@@ -180,7 +180,7 @@ class MyMouseHandleSecondC extends JFrame implements MouseListener {
     		 
     	  
     	if (x!=0 & x>20){
-    		info.setText("Experiment 1 ends");
+    		info.setText("Experiment 2 ends");
     		cm.setText("");
     		label1.setIcon(new ImageIcon(""));
     	}	 

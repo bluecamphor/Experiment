@@ -21,11 +21,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.lang.reflect.Array;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.*;
@@ -39,10 +41,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-
-  
-
 
 
 class MyMouseHandleFirstC extends JFrame implements MouseListener {  
@@ -64,12 +62,38 @@ class MyMouseHandleFirstC extends JFrame implements MouseListener {
 	String mouseinfo;
 	String result;
 	String time;
+	int id;
+	int c;
+	String stimulus =null;
+    String command=null;
+    String gesture=null;
+    String con;
+    String date;
+    ArrayList List = new ArrayList();
+    
 	
+    
 	
     public MyMouseHandleFirstC() {  
     	
     	name = JOptionPane.showInputDialog(this, "Input participant ID");
+    	
+    	id = Integer.parseInt(name);
+    	
+    	if(id%2==0){
+    		con = "uncongruent";
+    	}
+        if(id%2==1){
+        	
+            con = "congruent";
+        }
     	   	
+    	List.add(0);
+    	List.add(1);
+    	List.add(2);
+    	List.add(3);
+        
+        
     	info = new JLabel("Instrunction: Please click the left / right button to call for the command and gesture transformation.", SwingConstants.CENTER);
 		 info.setSize((int)width, 100);
 		 info.setLocation(0, 10);
@@ -107,84 +131,139 @@ class MyMouseHandleFirstC extends JFrame implements MouseListener {
 	public void mouseClicked(MouseEvent e)// ??????  
     {  
     	long start = System.currentTimeMillis();
-    			
-    		   int c = e.getButton();
-    	        mouseinfo = null;
-    	        String stimulus =null;
-    	        String command=null;
-    	        String gesture=null;
-    	        
-    	        i2 = random.nextInt(4);
-    	        
-    	        if(i2==0){
-    	        	cm.setText("Save");
-    	        	label1.setIcon(new ImageIcon(""));
-    	        	stimulus="Save";
-    	        	command="Save";
-    	        	gesture="null";
-    	        	
-    	        }
-    	        
-    	        if(i2==1){
-    	        	cm.setText("Save as");
-    	        	label1.setIcon(new ImageIcon(""));
-    	        	stimulus="Save as";
-    	        	command="Save as";
-    	        	gesture="null";
-    	        	
-    	        }
-    	        
-    	        
-    	        if(i2==2){
-    	        	cm.setText("");
-    	        	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
-    	        	stimulus="g1";
-    	        	command="null";
-    	        	gesture="g1";
-    	        }
-    	        
-    	        if(i2==3){
-    	        	cm.setText("");
-    	        	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
-    	        	stimulus="g2";
-    	        	command="null";
-    	        	gesture="g2";
-    	        }
-    	        
-    	        
-    	        
-    	        if (c == MouseEvent.BUTTON1) {  
-    	            mouseinfo = "left"; 
-    	        }
-    	         else if (c == MouseEvent.BUTTON3) { 
-    	            mouseinfo = "right"; 
+    	
+    
+    	
+    	        c = e.getButton();
+    	         mouseinfo=null;
+    	         
+    	            if (c == MouseEvent.BUTTON1) {  
+        	            mouseinfo = "left"; 
+        	        }
+        	         else if (c == MouseEvent.BUTTON3) { 
+        	            mouseinfo = "right"; 
+        	         }
+        	         else {  mouseinfo = "middle"; }  
+    	            
+    	            
+    	            if(stimulus!=null){
+    	            	
+    	            	
+    	            	if(stimulus.equals("Save") | stimulus.equals("g1")){
+    	            		
+    	            		//congruent 
+    	            		if (con.equals("congruent")){
+    	            			if (mouseinfo.equals("left")){
+            	         			result="correct";
+            	         		}
+            	         		
+            	         		if (mouseinfo.equals("right")){
+            	         			result="wrong";
+            	         		}
+    	            		}
+            	         		//congruent
+            	         		if (con.equals("uncongruent")){
+        	            			if (mouseinfo.equals("left")){
+                	         			result="wrong";
+                	         		}
+                	         		
+                	         		if (mouseinfo.equals("right")){
+                	         			result="correct";
+                	         		}	
+    	            		}
+        	         		
+        	         	
+        	         	
+        	         	if(stimulus.equals("Save as") | stimulus.equals("g2")){
+        	         		
+        	         		if(con.equals("congruent")){
+        	         			if (mouseinfo.equals("right")){
+            	         			result="correct";
+            	         		}
+            	         		
+            	         		if (mouseinfo.equals("left")){
+            	         			result="wrong";
+            	         		}
+        	         		}
+        	         		
+        	         		if(con.equals("uncongruent")){
+        	         			
+        	         			if (mouseinfo.equals("right")){
+            	         			result="wrong";
+            	         		}
+            	         		
+            	         		if (mouseinfo.equals("left")){
+            	         			result="correct";
+            	         		}
+        	         		}
+        	         	}
+        	         		
+        	         	
+        	         	
+        	         }
+        	            
+    	            	
+    	            }
+    	           
+    	            
 
-    	         }
-    	  
-    	         else {  mouseinfo = "middle"; }  
     	        
+//    	       
     	        
-    	        if ( mouseinfo=="left" && stimulus=="Save" |stimulus =="g1"){
-    	        	result = "Correct";
-    	        }
-    	        else
-    	        {result = "Wrong";}
-    	        
-    	        
-    	        if ( mouseinfo=="right" && stimulus=="Save as" |stimulus =="g2"){
-    	        	result = "Correct";
-    	        }
-    	        else
-    	        {result = "Wrong";}
-    	        
-  
+    	  //      i2 = random.nextInt(4);
     		   series[x]=start;
+    		   
+    		   
+         int index = x%4;
+         System.out.println((int)List.get(index));
+         
+         if((int)List.get(index)==0){
+	        	cm.setText("Save");
+	        	label1.setIcon(new ImageIcon(""));
+	        	stimulus="Save";
+	        	command="Save";
+	        	gesture="null";
+	        	
+	        	
+	        }
+	        
+	        if((int)List.get(index)==1){
+	        	cm.setText("Save as");
+	        	label1.setIcon(new ImageIcon(""));
+	        	stimulus="Save as";
+	        	command="Save as";
+	        	gesture="null";
+
+	        }
+	        
+	        
+	        if((int)List.get(index)==2){
+	        	cm.setText("");
+	        	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+	        	stimulus="g1";
+	        	command="null";
+	        	gesture="g1";
+
+	        }
+	        
+	        if((int)List.get(index)==3){
+	        	cm.setText("");
+	        	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+	        	stimulus="g2";
+	        	command="null";
+	        	gesture="g2";
+        		
+	        }
+         
+         
+         if (index==0) {
+        		Collections.shuffle(List);
+         }
 
     	 if (x!=0 & x<=20){
     		 interval[x] = series[x]-series[x-1];
     		 time = String.valueOf(interval[x]);
-    //		 System.out.println(i2 + ","+mouseinfo + "," + interval[x]);		
-    	 }
+    		     	 }
     		
     		 
     	  
@@ -192,19 +271,25 @@ class MyMouseHandleFirstC extends JFrame implements MouseListener {
     		info.setText("Experiment 1 ends");
     		cm.setText("");
     		label1.setIcon(new ImageIcon(""));
-    		
     	}	 
+    	
     	 x=x+1;
     	 
+    	 
+    	 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+    	 date=df.format(new Date(start));
+    	 
+    //	 System.out.println(df.format(new Date(start)));// new Date()为获取当前系统时间
+    	 
+    	 
     	  try {
-          	File csv = new File("/Users/mengyangwang/Documents/workspace/Experiment/src/result.csv");
+          	File csv = new File("/Users/mengyangwang/Documents/workspace/Experiment/src/" + name + ".csv");
           	BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true)); 
               bw.newLine(); 
-              if(x!=1 && x<=21){
-            	  bw.write( name + "," + "1" + "," + (x-1) + "," + "Congruent" + "," + stimulus + "," + command + "," + gesture + "," + mouseinfo + "," + result + "," + time); 
+              if(x>1 && x<=21){
+            	  bw.write( name + "," + "1" + "," + (x-1) + "," + con + "," + stimulus + "," + command + "," + gesture + "," + mouseinfo + "," + result + "," + time + "," + date); 
                   bw.close(); 
               }
-              
 
           } catch (FileNotFoundException e1) { 
               // 捕获File对象生成时的异常 

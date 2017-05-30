@@ -20,19 +20,17 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;  
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.Timer;  
   
-
-
-
 class MouseHandle extends JFrame implements MouseListener {  
     private static final MouseEvent MouseEvent = null;
 	private JTextArea text = new JTextArea();  
@@ -46,15 +44,16 @@ class MouseHandle extends JFrame implements MouseListener {
 	JLabel next;
 	int i2;
 	Random random = new Random(1000);
-	java.util.Timer timer = new java.util.Timer(true);
+    Timer timer = new Timer();
 	double width = Toolkit.getDefaultToolkit().getScreenSize().width; //得到当前屏幕分辨率的高
 	double height = Toolkit.getDefaultToolkit().getScreenSize().height;//得到当前屏幕分辨率的宽
-	
-	
-	
-	
+    String name;
+    int id;
 	
     public MouseHandle() {  
+    	
+       name = JOptionPane.showInputDialog(this, "Input participant ID");
+    	id = Integer.parseInt(name);
     	
     	JLabel info = new JLabel("Instrunction: Please click the left / right button to call for the command and gesture transformation.", SwingConstants.CENTER);
 		 info.setSize((int)width, 100);
@@ -71,16 +70,7 @@ class MouseHandle extends JFrame implements MouseListener {
 		 label1.setSize((int)width, 200);
 		 label1.setLocation(0, ((int)height)/3);
 		 
-		 super.add(label1);
-		 
-//		 ImageIcon g2 = new ImageIcon ("");
-//		 JLabel label2 = new JLabel("", g2, SwingConstants.RIGHT);
-//		 label2.setSize(300, 300);
-//		 label2.setLocation(500, 200);
-//		 super.add(label2);
-
-		 
-		 
+		super.add(label1);
         super.setTitle("Training One");// ????  
         JScrollPane pane = new JScrollPane(text);// ?????  
         pane.setBounds(5, 5, 300, 200);// ??????  
@@ -89,7 +79,6 @@ class MouseHandle extends JFrame implements MouseListener {
         super.setSize((int)width,(int)height);  
         super.setVisible(true);  
         
-           
         
         super.addWindowListener(new WindowAdapter() {  
             public void windowClosing(WindowEvent arg0) {  
@@ -103,168 +92,394 @@ class MouseHandle extends JFrame implements MouseListener {
 	public void mouseClicked(MouseEvent e)// ??????  
     {  
     	long start = System.currentTimeMillis();
-    	 
-    			
     		   int c = e.getButton();// ????????  
     	        String mouseInfo = null;// ????  
-    	        
-    	        if (c == MouseEvent.BUTTON1) {  // ?????????  
-    	            mouseInfo = "left";
-    	            if(x==0|x==1|x==2|x==3){
-    	            	
-    	            	cm.setText("");
-    	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
-    	     
-    	            	TimerTask task = new TimerTask() {   
-    	             		public void run() {   
-    	             			label1.setIcon(new ImageIcon(""));
-    	             		}   
-    	             	};  
-    	             		
-    	             		timer.schedule(task, 2000);
-    	            	
-    	            	
-    	            }
-    	            
-    	            if(x==4|x==5|x==6|x==7){
-    	            	cm.setText("Save");
-    	            	label1.setIcon(new ImageIcon(""));
-    	            	
-    	            	TimerTask task = new TimerTask() {   
-    	             		public void run() {   
-    	             			cm.setText("");
-    	             		}   
-    	             	};  
-    	             		
-    	             		timer.schedule(task, 2000);
-    	            	
-    	            	
-    	            	
-    	            	
-    	            }
-    	            
-    	            if(x>=8){
-    	            	
-    	            	
-    	            	i2 = random.nextInt(2);
-    	            	
-    	            	if (i2==0){
-    	            		cm.setText("Save");
-    	            		label1.setIcon(new ImageIcon(""));
-    	            		
-    	            		TimerTask task = new TimerTask() {   
+    	        if(id%2==1){
+    	        	if (c == MouseEvent.BUTTON1) {  // ?????????  
+        	            mouseInfo = "left";
+        	            timer.cancel();
+        	            if(x==0|x==1|x==2|x==3){
+        	            	cm.setText("");
+        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+        	     
+        	            	TimerTask task = new TimerTask() {   
+        	             		public void run() {   
+        	             			label1.setIcon(new ImageIcon(""));
+        	             		}   
+        	             	};  
+        	                timer = new Timer();
+        	             	timer.schedule(task, 2000);
+        	            }
+        	            
+        	            if(x==4|x==5|x==6|x==7){
+        	            	cm.setText("Save");
+        	            	label1.setIcon(new ImageIcon(""));
+        	            	
+        	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			cm.setText("");
         	             		}   
         	             	};  
-        	             		
+        	             	timer = new Timer();
         	             		timer.schedule(task, 2000);
-    	            		
-    	            	}
+        	            }
+        	            
+        	            if(x>=8){
+        	            	i2 = random.nextInt(2);
+        	            	if (i2==0){
+        	            		cm.setText("Save");
+        	            		label1.setIcon(new ImageIcon(""));
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			cm.setText("");
+            	             		}   
+            	             	};  
+            	             	timer = new Timer();
+            	             	timer.schedule(task, 2000);
+        	            	}
 
-    	            	if (i2==1){
-    	            		cm.setText("");
-    	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
-    	            	
-    	            		TimerTask task = new TimerTask() {   
+        	            	if (i2==1){
+        	            		cm.setText("");
+        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+        	            	
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			label1.setIcon(new ImageIcon(""));
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            	}
+        	            }
+        	        }
+        	         else if (c == MouseEvent.BUTTON3) {// ?????????  
+        	            mouseInfo = "right"; 
+        	            
+        	            if(x==0|x==1|x==2|x==3){
+        	            	cm.setText("");
+        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+        	            	
+        	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			label1.setIcon(new ImageIcon(""));
         	             		}   
         	             	};  
         	             		
         	             		timer.schedule(task, 2000);
+        	            }
+        	            
+        	            if(x==4|x==5|x==6|x==7){
+        	            	cm.setText("Save as");
+        	            	label1.setIcon(new ImageIcon(""));
         	            	
-    	            		
-    	            		
-    	            	}
-    	            	
-    	            	
-    	            	
-    	            }
-    	            
-    	            
+        	            	TimerTask task = new TimerTask() {   
+        	             		public void run() {   
+        	             			cm.setText("");
+        	             		}   
+        	             	};  
+        	             		
+        	             		timer.schedule(task, 2000);
+        	             		
+        	            }
+        	            
+        	            if(x>=8){
+        	            	
+        	            	
+        	            	i2 = random.nextInt(2);
+        	            	
+        	            	if (i2==0){
+        	            		cm.setText("Save as");
+        	            		label1.setIcon(new ImageIcon(""));
+        	            		
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			cm.setText("");
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            		
+        	            	}
+
+        	            	if (i2==1){
+        	            		cm.setText("");
+        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+        	            	
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			label1.setIcon(new ImageIcon(""));
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            	}
+        	        
+        	            }
+        	            
+        	            
+        	         }
+        	  
+        	         else {  mouseInfo = "middle"; }  
+    	        	
     	        }
-    	         else if (c == MouseEvent.BUTTON3) {// ?????????  
-    	            mouseInfo = "right"; 
-    	          //  label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
-
-    	            
-    	            if(x==0|x==1|x==2|x==3){
-    	            	cm.setText("");
-    	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
-    	            	
-    	            	TimerTask task = new TimerTask() {   
-    	             		public void run() {   
-    	             			label1.setIcon(new ImageIcon(""));
-    	             		}   
-    	             	};  
-    	             		
-    	             		timer.schedule(task, 2000);
-    	            	
-    	             		
-    	            	
-    	            	
-    	            	
-    	            }
-    	            
-    	            if(x==4|x==5|x==6|x==7){
-    	            	cm.setText("Save as");
-    	            	label1.setIcon(new ImageIcon(""));
-    	            	
-    	            	TimerTask task = new TimerTask() {   
-    	             		public void run() {   
-    	             			cm.setText("");
-    	             		}   
-    	             	};  
-    	             		
-    	             		timer.schedule(task, 2000);
-    	             		
-    	            }
-    	            
-    	            if(x>=8){
-    	            	
-    	            	
-    	            	i2 = random.nextInt(2);
-    	            	
-    	            	if (i2==0){
-    	            		cm.setText("Save as");
-    	            		label1.setIcon(new ImageIcon(""));
-    	            		
-    	            		TimerTask task = new TimerTask() {   
+    	        
+    	        
+    	        
+    	        if(id%2==0){
+    	        	if (c == MouseEvent.BUTTON3) {  // ?????????  
+        	            mouseInfo = "left";
+        	            timer.cancel();
+        	            if(x==0|x==1|x==2|x==3){
+        	            	cm.setText("");
+        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+        	     
+        	            	TimerTask task = new TimerTask() {   
+        	             		public void run() {   
+        	             			label1.setIcon(new ImageIcon(""));
+        	             		}   
+        	             	};  
+        	                timer = new Timer();
+        	             	timer.schedule(task, 2000);
+        	            }
+        	            
+        	            if(x==4|x==5|x==6|x==7){
+        	            	cm.setText("Save");
+        	            	label1.setIcon(new ImageIcon(""));
+        	            	
+        	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			cm.setText("");
         	             		}   
         	             	};  
-        	             		
+        	             	timer = new Timer();
         	             		timer.schedule(task, 2000);
-    	            		
-    	            	}
+        	            }
+        	            
+        	            if(x>=8){
+        	            	i2 = random.nextInt(2);
+        	            	if (i2==0){
+        	            		cm.setText("Save");
+        	            		label1.setIcon(new ImageIcon(""));
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			cm.setText("");
+            	             		}   
+            	             	};  
+            	             	timer = new Timer();
+            	             	timer.schedule(task, 2000);
+        	            	}
 
-    	            	if (i2==1){
-    	            		cm.setText("");
-    	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
-    	            	
-    	            		TimerTask task = new TimerTask() {   
+        	            	if (i2==1){
+        	            		cm.setText("");
+        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+        	            	
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			label1.setIcon(new ImageIcon(""));
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            	}
+        	            }
+        	        }
+        	         else if (c == MouseEvent.BUTTON1) {// ?????????  
+        	            mouseInfo = "right"; 
+        	            
+        	            if(x==0|x==1|x==2|x==3){
+        	            	cm.setText("");
+        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+        	            	
+        	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			label1.setIcon(new ImageIcon(""));
         	             		}   
         	             	};  
         	             		
         	             		timer.schedule(task, 2000);
+        	            }
+        	            
+        	            if(x==4|x==5|x==6|x==7){
+        	            	cm.setText("Save as");
+        	            	label1.setIcon(new ImageIcon(""));
         	            	
-    	            	
-    	            	
-    	            	
-    	            	}
-    	            	
-    	            	
-    	            	
-    	            }
-    	            
-    	            
-    	         }
-    	  
-    	         else {  mouseInfo = "middle"; }  
+        	            	TimerTask task = new TimerTask() {   
+        	             		public void run() {   
+        	             			cm.setText("");
+        	             		}   
+        	             	};  
+        	             		
+        	             		timer.schedule(task, 2000);
+        	             		
+        	            }
+        	            
+        	            if(x>=8){
+        	            	
+        	            	
+        	            	i2 = random.nextInt(2);
+        	            	
+        	            	if (i2==0){
+        	            		cm.setText("Save as");
+        	            		label1.setIcon(new ImageIcon(""));
+        	            		
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			cm.setText("");
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            		
+        	            	}
+
+        	            	if (i2==1){
+        	            		cm.setText("");
+        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+        	            	
+        	            		TimerTask task = new TimerTask() {   
+            	             		public void run() {   
+            	             			label1.setIcon(new ImageIcon(""));
+            	             		}   
+            	             	};  
+            	             		
+            	             		timer.schedule(task, 2000);
+        	            	}
+        	        
+        	            }
+        	            
+        	            
+        	         }
+        	  
+        	         else {  mouseInfo = "middle"; }  
+    	        	
+    	        }
+//    	        if (c == MouseEvent.BUTTON1) {  // ?????????  
+//    	            mouseInfo = "left";
+//    	            timer.cancel();
+//    	            if(x==0|x==1|x==2|x==3){
+//    	            	cm.setText("");
+//    	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+//    	     
+//    	            	TimerTask task = new TimerTask() {   
+//    	             		public void run() {   
+//    	             			label1.setIcon(new ImageIcon(""));
+//    	             		}   
+//    	             	};  
+//    	                timer = new Timer();
+//    	             	timer.schedule(task, 2000);
+//    	            }
+//    	            
+//    	            if(x==4|x==5|x==6|x==7){
+//    	            	cm.setText("Save");
+//    	            	label1.setIcon(new ImageIcon(""));
+//    	            	
+//    	            	TimerTask task = new TimerTask() {   
+//    	             		public void run() {   
+//    	             			cm.setText("");
+//    	             		}   
+//    	             	};  
+//    	             	timer = new Timer();
+//    	             		timer.schedule(task, 2000);
+//    	            }
+//    	            
+//    	            if(x>=8){
+//    	            	i2 = random.nextInt(2);
+//    	            	if (i2==0){
+//    	            		cm.setText("Save");
+//    	            		label1.setIcon(new ImageIcon(""));
+//    	            		TimerTask task = new TimerTask() {   
+//        	             		public void run() {   
+//        	             			cm.setText("");
+//        	             		}   
+//        	             	};  
+//        	             	timer = new Timer();
+//        	             	timer.schedule(task, 2000);
+//    	            	}
+//
+//    	            	if (i2==1){
+//    	            		cm.setText("");
+//    	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1.jpg"));
+//    	            	
+//    	            		TimerTask task = new TimerTask() {   
+//        	             		public void run() {   
+//        	             			label1.setIcon(new ImageIcon(""));
+//        	             		}   
+//        	             	};  
+//        	             		
+//        	             		timer.schedule(task, 2000);
+//    	            	}
+//    	            }
+//    	        }
+//    	         else if (c == MouseEvent.BUTTON3) {// ?????????  
+//    	            mouseInfo = "right"; 
+//    	          //  label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+//
+//    	            
+//    	            if(x==0|x==1|x==2|x==3){
+//    	            	cm.setText("");
+//    	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+//    	            	
+//    	            	TimerTask task = new TimerTask() {   
+//    	             		public void run() {   
+//    	             			label1.setIcon(new ImageIcon(""));
+//    	             		}   
+//    	             	};  
+//    	             		
+//    	             		timer.schedule(task, 2000);
+//    	            }
+//    	            
+//    	            if(x==4|x==5|x==6|x==7){
+//    	            	cm.setText("Save as");
+//    	            	label1.setIcon(new ImageIcon(""));
+//    	            	
+//    	            	TimerTask task = new TimerTask() {   
+//    	             		public void run() {   
+//    	             			cm.setText("");
+//    	             		}   
+//    	             	};  
+//    	             		
+//    	             		timer.schedule(task, 2000);
+//    	             		
+//    	            }
+//    	            
+//    	            if(x>=8){
+//    	            	
+//    	            	
+//    	            	i2 = random.nextInt(2);
+//    	            	
+//    	            	if (i2==0){
+//    	            		cm.setText("Save as");
+//    	            		label1.setIcon(new ImageIcon(""));
+//    	            		
+//    	            		TimerTask task = new TimerTask() {   
+//        	             		public void run() {   
+//        	             			cm.setText("");
+//        	             		}   
+//        	             	};  
+//        	             		
+//        	             		timer.schedule(task, 2000);
+//    	            		
+//    	            	}
+//
+//    	            	if (i2==1){
+//    	            		cm.setText("");
+//    	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g2.jpg"));
+//    	            	
+//    	            		TimerTask task = new TimerTask() {   
+//        	             		public void run() {   
+//        	             			label1.setIcon(new ImageIcon(""));
+//        	             		}   
+//        	             	};  
+//        	             		
+//        	             		timer.schedule(task, 2000);
+//    	            	}
+//    	        
+//    	            }
+//    	            
+//    	            
+//    	         }
+//    	  
+//    	         else {  mouseInfo = "middle"; }  
     	        
   
     		   series[x]=start;
@@ -309,18 +524,10 @@ class MouseHandle extends JFrame implements MouseListener {
     public void mouseReleased(MouseEvent e)// ????  
     {  
     }  
-    
-	
 	}
-	
-	
+
 public class Training1C {  
     public static void main(String[] args) { 
-    	
-    	
-	 
         new MouseHandle();  
-
-        
     }  
 }  

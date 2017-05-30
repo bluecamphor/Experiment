@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ExperimentC.Experiment1C
+Class-Path: experiment1.jar
+Created-By: Mengyang WANG
