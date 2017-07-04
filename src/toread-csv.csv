@@ -1,0 +1,181 @@
+id,block,c1,c2,g1,g2,congruency
+1,1,start,stop,g8-1,g8-2,TRUE
+1,2,open,open recent,g7-1,g7-2,TRUE
+1,3,tools,spelling,g5-1,g5-2,TRUE
+1,4,before,after,g3-1,g3-2,FALSE
+1,5,car,wheel,g1-1,g1-2,FALSE
+1,6,open,close,g4-1,g4-2,FALSE
+1,7,color,blue,g2-1,g2-2,TRUE
+1,8,save,save as,g1-1,g2-2,FALSE
+1,9,format,alignment,g9-1,g9-2,FALSE
+2,1,save,save as,g1-1,g2-2,TRUE
+2,2,start,stop,g1-1,g1-2,FALSE
+2,3,before,after,g3-1,g3-2,FALSE
+2,4,car,wheel,g7-1,g7-2,FALSE
+2,5,open,open recent,g5-1,g5-2,FALSE
+2,6,tools,spelling,g4-1,g4-2,FALSE
+2,7,format,alignment,g6-1,g6-2,FALSE
+2,8,color,blue,g9-1,g9-2,FALSE
+2,9,open,close,g2-1,g2-2,TRUE
+3,1,start,stop,g2-1,g2-2,FALSE
+3,2,open,open recent,g1-1,g1-2,FALSE
+3,3,color,blue,g5-1,g5-2,FALSE
+3,4,before,after,g6-1,g6-2,FALSE
+3,5,save,save as,g7-1,g7-2,TRUE
+3,6,tools,spelling,g3-1,g3-2,TRUE
+3,7,car,wheel,g4-1,g4-2,TRUE
+3,8,format,alignment,g9-1,g9-2,FALSE
+3,9,open,close,g8-1,g8-2,FALSE
+4,1,car,wheel,g4-1,g4-2,TRUE
+4,2,format,alignment,g7-1,g7-2,FALSE
+4,3,tools,spelling,g6-1,g6-2,FALSE
+4,4,save,save as,g5-1,g5-2,FALSE
+4,5,before,after,g2-1,g2-2,TRUE
+4,6,start,stop,g1-1,g1-2,FALSE
+4,7,open,open recent,g3-1,g3-2,FALSE
+4,8,color,blue,g8-1,g8-2,TRUE
+4,9,open,close,g9-1,g9-2,FALSE
+5,1,start,stop,g9-1,g9-2,TRUE
+5,2,open,open recent,g2-1,g2-2,TRUE
+5,3,tools,spelling,g7-1,g7-2,FALSE
+5,4,before,after,g4-1,g4-2,TRUE
+5,5,save,save as,g1-1,g1-2,FALSE
+5,6,format,alignment,g3-1,g3-2,FALSE
+5,7,car,wheel,g4-1,g4-2,FALSE
+5,8,color,blue,g8-1,g8-2,TRUE
+5,9,open,close,g5-1,g5-2,FALSE
+6,1,save,save as,g2-1,g2-2,TRUE
+6,2,format,alignment,g9-1,g9-2,TRUE
+6,3,open,close,g5-1,g5-2,TRUE
+6,4,start,stop,g3-1,g3-2,TRUE
+6,5,tools,spelling,g4-1,g4-2,TRUE
+6,6,color,blue,g7-1,g7-2,TRUE
+6,7,before,after,g7-1,g7-2,TRUE
+6,8,car,wheel,g8-1,g8-2,FALSE
+6,9,open,open recent,g6-1,g6-2,FALSE
+7,1,open,open recent,g5-1,g5-2,FALSE
+7,2,car,wheel,g8-1,g8-2,TRUE
+7,3,before,after,g4-1,g4-2,FALSE
+7,4,tools,spelling,g2-1,g2-2,FALSE
+7,5,color,blue,g3-1,g3-2,FALSE
+7,6,open,close,g9-1,g9-2,FALSE
+7,7,start,stop,g6-1,g6-2,TRUE
+7,8,save,save as,g9-1,g9-2,FALSE
+7,9,format,alignment,g2-1,g2-2,TRUE
+8,1,open,open recent,g5-1,g5-2,TRUE
+8,2,format,alignment,g8-1,g8-2,TRUE
+8,3,color,blue,g8-1,g8-2,FALSE
+8,4,tools,spelling,g1-1,g1-2,FALSE
+8,5,car,wheel,g3-1,g3-2,TRUE
+8,6,start,stop,g7-1,g7-2,FALSE
+8,7,before,after,g6-1,g6-2,TRUE
+8,8,open,close,g9-1,g9-2,FALSE
+8,9,save,save as,g1-1,g1-2,TRUE
+9,1,tools,spelling,g6-1,g6-2,TRUE
+9,2,car,wheel,g2-1,g2-2,FALSE
+9,3,save,save as,g9-1,g9-2,TRUE
+9,4,color,blue,g5-1,g5-2,TRUE
+9,5,format,alignment,g1-1,g1-2,FALSE
+9,6,open,open recent,g4-1,g4-2,TRUE
+9,7,before,after,g3-1,g3-2,FALSE
+9,8,open,close,g8-1,g8-2,FALSE
+9,9,start,stop,g7-1,g7-2,TRUE
+10,1,open,open recent,g7-1,g7-2,TRUE
+10,2,tools,spelling,g3-1,g3-2,FALSE
+10,3,save,save as,g8-1,g8-2,FALSE
+10,4,car,wheel,g4-1,g4-2,TRUE
+10,5,before,after,g1-1,g1-2,TRUE
+10,6,format,alignment,g5-1,g5-2,FALSE
+10,7,start,stop,g9-1,g9-2,TRUE
+10,8,color,blue,g6-1,g6-2,TRUE
+10,9,open,close,g2-1,g2-2,FALSE
+11,1,save,save as,g2-1,g2-2,TRUE
+11,2,color,blue,g6-1,g6-2,TRUE
+11,3,open,open recent,g6-1,g6-2,TRUE
+11,4,start,stop,g5-1,g5-2,TRUE
+11,5,tools,spelling,g9-1,g2-2,FALSE
+11,6,car,wheel,g8-1,g8-2,FALSE
+11,7,before,after,g4-1,g4-2,FALSE
+11,8,open,close,g3-1,g3-2,FALSE
+11,9,format,alignment,g7-1,g7-2,FALSE
+12,1,open,close,g7-1,g7-2,FALSE
+12,2,tools,spelling,g3-1,g3-2,FALSE
+12,3,before,after,g8-1,g8-2,TRUE
+12,4,format,alignment,g4-1,g4-2,FALSE
+12,5,open,open recent,g5-1,g5-2,FALSE
+12,6,car,wheel,g1-1,g1-2,TRUE
+12,7,save,save as,g6-1,g6-2,FALSE
+12,8,start,stop,g9-1,g9-2,FALSE
+12,9,color,blue,g2-1,g2-2,TRUE
+13,1,open,open recent,g7-1,g7-2,TRUE
+13,2,color,blue,g3-1,g3-2,TRUE
+13,3,save,save as,g8-1,g8-2,TRUE
+13,4,before,after,g4-1,g4-2,FALSE
+13,5,tools,spelling,g5-1,g5-2,TRUE
+13,6,format,alignment,g1-1,g1-2,FALSE
+13,7,open,close,g6-1,g6-2,FALSE
+13,8,car,wheel,g6-1,g6-2,TRUE
+13,9,start,stop,g2-1,g2-2,TRUE
+14,1,before,after,g2-1,g2-2,FALSE
+14,2,save,save as,g9-1,g9-2,TRUE
+14,3,start,stop,g6-1,g6-2,TRUE
+14,4,open,close,g1-1,g1-2,TRUE
+14,5,open,open recent,g3-1,g3-2,FALSE
+14,6,tools,spelling,g8-1,g8-2,FALSE
+14,7,format,alignment,g4-1,g4-2,FALSE
+14,8,car,wheel,g5-1,g5-2,FALSE
+14,9,color,blue,g7-1,g7-2,TRUE
+15,1,open,open recent,g5-1,g5-2,TRUE
+15,2,color,blue,g7-1,g7-2,TRUE
+15,3,before,after,g3-1,g3-2,TRUE
+15,4,start,stop,g8-1,g8-2,TRUE
+15,5,tools,spelling,g4-1,g4-2,TRUE
+15,6,open,close,g1-1,g1-2,TRUE
+15,7,save,save as,g9-1,g9-2,FALSE
+15,8,format,alignment,g6-1,g6-2,FALSE
+15,9,car,wheel,g2-1,g2-2,TRUE
+16,1,color,blue,g6-1,g6-2,TRUE
+16,2,format,alignment,g2-1,g2-2,FALSE
+16,3,start,stop,g1-1,g1-2,FALSE
+16,4,save,save as,g9-1,g9-2,FALSE
+16,5,tools,spelling,g4-1,g4-2,TRUE
+16,6,car,wheel,g8-1,g8-2,TRUE
+16,7,open,open recent,g3-1,g3-2,TRUE
+16,8,before,after,g5-1,g5-2,FALSE
+16,9,open,close,g7-1,g7-2,FALSE
+17,1,save,save as,g3-1,g3-2,TRUE
+17,2,open,open recent,g5-1,g5-2,FALSE
+17,3,before,after,g7-1,g7-2,TRUE
+17,4,tools,spelling,g8-1,g8-2,TRUE
+17,5,color,blue,g9-1,g9-2,FALSE
+17,6,open,close,g4-1,g4-2,TRUE
+17,7,format,alignment,g1-1,g1-2,TRUE
+17,8,car,wheel,g2-1,g2-2,FALSE
+17,9,start,stop,g6-1,g6-2,TRUE
+18,1,tools,spelling,g8-1,g8-2,TRUE
+18,2,color,blue,g9-1,g9-2,TRUE
+18,3,save,save as,g3-1,g3-2,FALSE
+18,4,open,open recent,g5-1,g5-2,TRUE
+18,5,before,after,g7-1,g7-2,TRUE
+18,6,start,stop,g6-1,g6-2,FALSE
+18,7,open,close,g4-1,g4-2,FALSE
+18,8,format,alignment,g1-1,g1-2,TRUE
+18,9,car,wheel,g2-1,g2-2,FALSE
+19,1,save,save as,g8-1,g8-2,TRUE
+19,2,open,open recent,g9-1,g9-2,FALSE
+19,3,format,alignment,g3-1,g3-2,TRUE
+19,4,car,wheel,g5-1,g5-2,TRUE
+19,5,before,after,g7-1,g7-2,FALSE
+19,6,start,stop,g6-1,g6-2,TRUE
+19,7,color,blue,g4-1,g4-2,FALSE
+19,8,tools,spelling,g1-1,g1-2,FALSE
+19,9,open,close,g2-1,g2-2,TRUE
+20,1,format,alignment,g2-1,g2-2,TRUE
+20,2,color,blue,g4-1,g4-2,FALSE
+20,3,tools,spelling,g1-1,g1-2,TRUE
+20,4,before,after,g7-1,g7-2,TRUE
+20,5,start,stop,g6-1,g6-2,TRUE
+20,6,save,save as,g5-1,g5-2,FALSE
+20,7,open,close,g3-1,g3-2,TRUE
+20,8,open,open recent,g9-1,g9-2,FALSE
+20,9,car,wheel,g8-1,g8-2,FALSE
