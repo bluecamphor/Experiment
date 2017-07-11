@@ -64,11 +64,15 @@ class MouseHandle2 extends JFrame implements MouseListener {
     String stimulus;
     ArrayList commandList = new ArrayList();
    // int index;
+	int id;
+	
 	
     public MouseHandle2() {  
     	
        name = JOptionPane.showInputDialog(this, "Input participant ID");
     	block = JOptionPane.showInputDialog(this, "Input block number");
+    	id=Integer.parseInt(name);
+    	
     	commandList.add(0);
     	commandList.add(1);
     	commandList.add(2);
@@ -89,7 +93,7 @@ class MouseHandle2 extends JFrame implements MouseListener {
 		 label1.setLocation(0, ((int)height)/3);
 		 
 		super.add(label1);
-        super.setTitle("Training 2");// ????  
+        super.setTitle("Training");// ????  
         JScrollPane pane = new JScrollPane(text);// ?????  
         pane.setBounds(5, 5, 300, 200);// ??????  
         super.add(pane);// ????????  
@@ -120,132 +124,489 @@ class MouseHandle2 extends JFrame implements MouseListener {
             	String item[] = user.get(k).split(",");
                 if(item[0].equals(name)&&item[2].equals(block)){
                 	
-                	 
-             //   	 command1=item[2];
-              //     command2=item[3];
-//              	 gesture1=item[4];
-//              	 gesture2=item[5];
                 	 trial=item[3];
                 	 semantic=item[4];
                 	 gestures=item[5];
                 	 congruency=item[6];
                 	 stimulus=item[7];
                 	 mouse=item[8];
-                   	// System.out.println(item[4]);
                 	 
+                	 if(id%3==0){
+                    	 System.out.print(id);
+                     if(semantic.equals("1")){
+                   		 if(gestures.equals("1")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 command1="save";
+                       			 command2="save as";
+                       			 gesture1="g1-1";
+                       			 gesture2="g1-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="open";
+                       			 command2="open recent";
+                       			 gesture1="g2-2";
+                       			 gesture2="g2-1";
+                   			 }
+                	        }
+                   		 
+                   		 if(gestures.equals("2")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 
+                   				 command1="car";
+                       			 command2="wheel";
+                       			 gesture1="g4-1";
+                       			 gesture2="g4-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="Europe";
+                       			 command2="France";
+                       			 gesture1="g5-2";
+                       			 gesture2="g5-1";
+                   			 }
+                	        }
+                   		 
+                   		 if(gestures.equals("3")){
+                   			
+                   		
+                   			 if(congruency.equals("0")){
+                   				 command1="hand";
+                       			 command2="finger";
+                       			 gesture1="g7-1";
+                       			 gesture2="g7-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="shirt";
+                       			 command2="sleeve";
+                       			 gesture1="g8-2";
+                       			 gesture2="g8-1";
+                   			 }
+                	        }
+                	        }
+                   	 if(semantic.equals("2")){
+                   		 if(gestures.equals("1")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 command1="open";
+                       			 command2="close";
+                       			 gesture1="g2-1";
+                       			 gesture2="g2-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="start";
+                       			 command2="stop";
+                       			 gesture1="g3-2";
+                       			 gesture2="g3-1";
+                   			 }
+                	        }
+                   		 
+                   		 
+                   		 
+                   		 if(gestures.equals("2")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 command1="before";
+                       			 command2="after";
+                       			 gesture1="g5-1";
+                       			 gesture2="g5-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="precede";
+                       			 command2="follow";
+                       			 gesture1="g6-2";
+                       			 gesture2="g6-1";
+                   			 }
+                	        }
+                   		 
+                   		 if(gestures.equals("3")){
+                   			
+                   			 if(congruency.equals("0")){
+                   				 command1="above";
+                       			 command2="below";
+                       			 gesture1="g8-1";
+                       			 gesture2="g8-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="present";
+                       			 command2="absent";
+                       			 gesture1="g9-2";
+                       			 gesture2="g9-1";
+                   			 }
+                	        }
+                	        }
+                   	 
+                      	 
+                      	 if(semantic.equals("3")){
+                   		 if(gestures.equals("1")){
+                   			
+                   			 if(congruency.equals("0")){
+                   				 command1="format";
+                       			 command2="alignment";
+                       			 gesture1="g3-1";
+                       			 gesture2="g3-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="tools";
+                       			 command2="spelling";
+                       			 gesture1="g1-2";
+                       			 gesture2="g1-1";
+                   			 }
+                	        }
+                   		 if(gestures.equals("2")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 command1="color";
+                       			 command2="blue";
+                       			 gesture1="g6-1";
+                       			 gesture2="g6-2";
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="beverage";
+                       			 command2="tea";
+                       			 gesture1="g4-2";
+                       			 gesture2="g4-1";
+                   			 }
+                	        }
+                   		 
+                   		 if(gestures.equals("3")){
+                   			 
+                   			 if(congruency.equals("0")){
+                   				 command1="animal";
+                       			 command2="cat";
+                       			 gesture1="g9-1";
+                       			 gesture2="g9-2";
+                       			 
+                       			System.out.println("hahaha");
+                   			 }
+                   			 if(congruency.equals("1")){
+                   				 command1="shape";
+                       			 command2="rectangular";
+                       			 gesture1="g7-2";
+                       			 gesture2="g7-1";
+                   			 }
+                	        }
+                      	 }
+                	      
+                     }
+                     if(id%3==1){
+                    	 System.out.print(id);
+                         if(semantic.equals("1")){
+                       		 if(gestures.equals("1")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="save";
+                           			 command2="save as";
+                           			 gesture1="g4-1";
+                           			 gesture2="g4-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="open";
+                           			 command2="open recent";
+                           			 gesture1="g5-2";
+                           			 gesture2="g5-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 
+                       				 command1="car";
+                           			 command2="wheel";
+                           			 gesture1="g7-1";
+                           			 gesture2="g7-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="Europe";
+                           			 command2="France";
+                           			 gesture1="g8-2";
+                           			 gesture2="g8-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			
+                       		
+                       			 if(congruency.equals("0")){
+                       				 command1="hand";
+                           			 command2="finger";
+                           			 gesture1="g1-1";
+                           			 gesture2="g1-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="shirt";
+                           			 command2="sleeve";
+                           			 gesture1="g2-2";
+                           			 gesture2="g2-1";
+                       			 }
+                    	        }
+                    	        }
+                       	 if(semantic.equals("2")){
+                       		 if(gestures.equals("1")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="open";
+                           			 command2="close";
+                           			 gesture1="g5-1";
+                           			 gesture2="g5-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="start";
+                           			 command2="stop";
+                           			 gesture1="g6-2";
+                           			 gesture2="g6-1";
+                       			 }
+                    	        }
+                       		 
+                       		 
+                       		 
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="before";
+                           			 command2="after";
+                           			 gesture1="g8-1";
+                           			 gesture2="g8-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="precede";
+                           			 command2="follow";
+                           			 gesture1="g9-2";
+                           			 gesture2="g9-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			
+                       			 if(congruency.equals("0")){
+                       				 command1="above";
+                           			 command2="below";
+                           			 gesture1="g2-1";
+                           			 gesture2="g2-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="present";
+                           			 command2="absent";
+                           			 gesture1="g3-2";
+                           			 gesture2="g3-1";
+                       			 }
+                    	        }
+                    	        }
+                       	 
+                          	 
+                          	 if(semantic.equals("3")){
+                       		 if(gestures.equals("1")){
+                       			
+                       			 if(congruency.equals("0")){
+                       				 command1="format";
+                           			 command2="alignment";
+                           			 gesture1="g6-1";
+                           			 gesture2="g6-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="tools";
+                           			 command2="spelling";
+                           			 gesture1="g4-2";
+                           			 gesture2="g4-1";
+                       			 }
+                    	        }
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="color";
+                           			 command2="blue";
+                           			 gesture1="g9-1";
+                           			 gesture2="g9-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="beverage";
+                           			 command2="tea";
+                           			 gesture1="g7-2";
+                           			 gesture2="g7-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="animal";
+                           			 command2="cat";
+                           			 gesture1="g3-1";
+                           			 gesture2="g3-2";
+                           			 
+                           			System.out.println("hahaha");
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="shape";
+                           			 command2="rectangular";
+                           			 gesture1="g1-2";
+                           			 gesture2="g1-1";
+                       			 }
+                    	        }
+                          	 }
+                    	      
+                         } 
+                  	
+                     if(id%3==2){
+                    	 System.out.print(id);
+                         if(semantic.equals("1")){
+                       		 if(gestures.equals("1")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="save";
+                           			 command2="save as";
+                           			 gesture1="g7-1";
+                           			 gesture2="g7-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="open";
+                           			 command2="open recent";
+                           			 gesture1="g8-2";
+                           			 gesture2="g8-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 
+                       				 command1="car";
+                           			 command2="wheel";
+                           			 gesture1="g1-1";
+                           			 gesture2="g1-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="Europe";
+                           			 command2="France";
+                           			 gesture1="g2-2";
+                           			 gesture2="g2-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			
+                       		
+                       			 if(congruency.equals("0")){
+                       				 command1="hand";
+                           			 command2="finger";
+                           			 gesture1="g4-1";
+                           			 gesture2="g4-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="shirt";
+                           			 command2="sleeve";
+                           			 gesture1="g5-2";
+                           			 gesture2="g5-1";
+                       			 }
+                    	        }
+                    	        }
+                       	 if(semantic.equals("2")){
+                       		 if(gestures.equals("1")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="open";
+                           			 command2="close";
+                           			 gesture1="g8-1";
+                           			 gesture2="g8-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="start";
+                           			 command2="stop";
+                           			 gesture1="g9-2";
+                           			 gesture2="g9-1";
+                       			 }
+                    	        }
+                       		 
+                       		 
+                       		 
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="before";
+                           			 command2="after";
+                           			 gesture1="g2-1";
+                           			 gesture2="g2-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="precede";
+                           			 command2="follow";
+                           			 gesture1="g3-2";
+                           			 gesture2="g3-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			
+                       			 if(congruency.equals("0")){
+                       				 command1="above";
+                           			 command2="below";
+                           			 gesture1="g5-1";
+                           			 gesture2="g5-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="present";
+                           			 command2="absent";
+                           			 gesture1="g6-2";
+                           			 gesture2="g6-1";
+                       			 }
+                    	        }
+                    	        }
+                       	 
+                          	 
+                          	 if(semantic.equals("3")){
+                       		 if(gestures.equals("1")){
+                       			
+                       			 if(congruency.equals("0")){
+                       				 command1="format";
+                           			 command2="alignment";
+                           			 gesture1="g9-1";
+                           			 gesture2="g9-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="tools";
+                           			 command2="spelling";
+                           			 gesture1="g7-2";
+                           			 gesture2="g7-1";
+                       			 }
+                    	        }
+                       		 if(gestures.equals("2")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="color";
+                           			 command2="blue";
+                           			 gesture1="g3-1";
+                           			 gesture2="g3-2";
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="beverage";
+                           			 command2="tea";
+                           			 gesture1="g1-2";
+                           			 gesture2="g1-1";
+                       			 }
+                    	        }
+                       		 
+                       		 if(gestures.equals("3")){
+                       			 
+                       			 if(congruency.equals("0")){
+                       				 command1="animal";
+                           			 command2="cat";
+                           			 gesture1="g6-1";
+                           			 gesture2="g6-2";
+                           			 
+                           			System.out.println("hahaha");
+                       			 }
+                       			 if(congruency.equals("1")){
+                       				 command1="shape";
+                           			 command2="rectangular";
+                           			 gesture1="g4-2";
+                           			 gesture2="g4-1";
+                       			 }
+                    	        }
+                          	 }
+                    	      
+                         }
                 	 
-                	 if(semantic.equals("1")){
-                		 if(gestures.equals("1")){
-                			 if(congruency.equals("0")){
-                				 command1="save";
-                    			 command2="save as";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="open";
-                    			 command2="open recent";
-                			 }
-             	        }
-                		 
-                		 if(gestures.equals("2")){
-                			 if(congruency.equals("0")){
-                				 command1="open";
-                    			 command2="close";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="start";
-                    			 command2="stop";
-                			 }
-             	        }
-                		 
-                		 if(gestures.equals("3")){
-                			 if(congruency.equals("0")){
-                				 command1="before";
-                    			 command2="after";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="precede";
-                    			 command2="follow";
-                			 }
-             	        }
-            	        }
-                	 if(semantic.equals("3")){
-                		 if(gestures.equals("1")){
-                			 if(congruency.equals("0")){
-                				 command1="above";
-                    			 command2="below";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="present";
-                    			 command2="absent";
-                			 }
-             	        }
-                		 
-                		 
-                		 
-                		 if(gestures.equals("2")){
-                			 if(congruency.equals("0")){
-                				 command1="color";
-                    			 command2="blue";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="beverage";
-                    			 command2="tea";
-                			 }
-             	        }
-                		 
-                		 if(gestures.equals("3")){
-                			 if(congruency.equals("0")){
-                				 command1="animal";
-                    			 command2="cat";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="font";
-                    			 command2="Arial";
-                			 }
-             	        }
-            	        }
-                	 
-                   	 
-                   	 if(semantic.equals("3")){
-                		 if(gestures.equals("1")){
-                			 if(congruency.equals("0")){
-                				 command1="format";
-                    			 command2="alignment";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="tools";
-                    			 command2="spelling";
-                			 }
-             	        }
-                		 if(gestures.equals("2")){
-                			 if(congruency.equals("0")){
-                				 command1="color";
-                    			 command2="blue";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="beverage";
-                    			 command2="tea";
-                			 }
-             	        }
-                		 
-                		 if(gestures.equals("3")){
-                			 if(congruency.equals("0")){
-                				 command1="animal";
-                    			 command2="cat";
-                			 }
-                			 if(congruency.equals("1")){
-                				 command1="font";
-                    			 command2="Arial";
-                			 }
-             	        }
-            	        }
-                   	 
-                   	 
-                   	 
-                   	 
-                   	 
-                   	 
-                   	 
                    	 
                    	 
                 }
@@ -261,141 +622,23 @@ class MouseHandle2 extends JFrame implements MouseListener {
     	long start = System.currentTimeMillis();
     		   int c = e.getButton();// ????????  
     	        String mouseInfo = null;// ????  
-    	      
-//    	        if(congruency.equals("TRUE")){
-//    	        	if (c == MouseEvent.BUTTON1) {  // ?????????  
-//        	            mouseInfo = "left";
-//        	            timer.cancel();
-//        	            if(x==0|x==1|x==2|x==3){
-//        	            	cm.setText("");
-//        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
-//        	     
-//        	            	TimerTask task = new TimerTask() {   
-//        	             		public void run() {   
-//        	             			label1.setIcon(new ImageIcon(""));
-//        	             		}   
-//        	             	};  
-//        	                timer = new Timer();
-//        	             	timer.schedule(task, 2000);
-//        	            }
-//        	            
-//        	            if(x==4|x==5|x==6|x==7){
-//        	            	cm.setText(command1);
-//        	            	label1.setIcon(new ImageIcon(""));
-//        	            	
-//        	            	TimerTask task = new TimerTask() {   
-//        	             		public void run() {   
-//        	             			cm.setText("");
-//        	             		}   
-//        	             	};  
-//        	             	timer = new Timer();
-//        	             		timer.schedule(task, 2000);
-//        	            }
-//        	            
-//        	            if(x>=8){
-//        	            	i2 = random.nextInt(2);
-//        	            	if (i2==0){
-//        	            		cm.setText(command1);
-//        	            		label1.setIcon(new ImageIcon(""));
-//        	            		TimerTask task = new TimerTask() {   
-//            	             		public void run() {   
-//            	             			cm.setText("");
-//            	             		}   
-//            	             	};  
-//            	             	timer = new Timer();
-//            	             	timer.schedule(task, 2000);
-//        	            	}
-//
-//        	            	if (i2==1){
-//        	            		cm.setText("");
-//        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
-//        	            	
-//        	            		TimerTask task = new TimerTask() {   
-//            	             		public void run() {   
-//            	             			label1.setIcon(new ImageIcon(""));
-//            	             		}   
-//            	             	};  
-//            	             		
-//            	             		timer.schedule(task, 2000);
-//        	            	}
-//        	            }
-//        	        }
-//        	         else if (c == MouseEvent.BUTTON3) {// ?????????  
-//        	            mouseInfo = "right"; 
-//        	            
-//        	            if(x==0|x==1|x==2|x==3){
-//        	            	cm.setText("");
-//        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
-//        	            	
-//        	            	TimerTask task = new TimerTask() {   
-//        	             		public void run() {   
-//        	             			label1.setIcon(new ImageIcon(""));
-//        	             		}   
-//        	             	};  
-//        	             		
-//        	             		timer.schedule(task, 2000);
-//        	            }
-//        	            
-//        	            if(x==4|x==5|x==6|x==7){
-//        	            	cm.setText(command2);
-//        	            	label1.setIcon(new ImageIcon(""));
-//        	            	
-//        	            	TimerTask task = new TimerTask() {   
-//        	             		public void run() {   
-//        	             			cm.setText("");
-//        	             		}   
-//        	             	};  
-//        	             		
-//        	             		timer.schedule(task, 2000);
-//        	             		
-//        	            }
-//        	            
-//        	            if(x>=8){
-//        	            	i2 = random.nextInt(2);
-//        	            	if (i2==0){
-//        	            		cm.setText(command2);
-//        	            		label1.setIcon(new ImageIcon(""));
-//        	            		
-//        	            		TimerTask task = new TimerTask() {   
-//            	             		public void run() {   
-//            	             			cm.setText("");
-//            	             		}   
-//            	             	};  
-//            	             		timer.schedule(task, 2000);
-//        	            	}
-//
-//        	            	if (i2==1){
-//        	            		cm.setText("");
-//        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
-//        	            	
-//        	            		TimerTask task = new TimerTask() {   
-//            	             		public void run() {   
-//            	             			label1.setIcon(new ImageIcon(""));
-//            	             		}   
-//            	             	};  
-//            	             		
-//            	             		timer.schedule(task, 2000);
-//        	            	}
-//        	        
-//        	            }
-//        	            
-//        	            
-//        	         }
-//        	  
-//        	         else {  mouseInfo = "middle"; }  
-//    	        	
-//    	        }
     	        
-    	        
-    	        
-    	        	if (c == MouseEvent.BUTTON3) {  // ?????????  
+    	        	if (c == MouseEvent.BUTTON1) {  // ?????????  
         	            mouseInfo = "left";
         	            timer.cancel();
         	           
         	            if(x==0|x==1|x==2|x==3){
         	            	cm.setText("");
-        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1-1.jpg"));
-        	     
+        	            	if(id%2==0){
+        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
+        	            	}
+        	            	
+        	            	if(id%2==1){
+            	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
+            	            	}
+        	            	
+        	            	
+        	            	
         	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			label1.setIcon(new ImageIcon(""));
@@ -406,7 +649,16 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	            }
         	            
         	            if(x==4|x==5|x==6|x==7){
-        	            	cm.setText(command1);
+        	            	
+        	            	if(id%2==0){
+        	            		cm.setText(command1);
+        	            	}
+        	            	
+        	            	if(id%2==1){
+        	            		cm.setText(command2);
+        	            	}
+        	            	
+        	          
         	            	label1.setIcon(new ImageIcon(""));
         	            	
         	            	TimerTask task = new TimerTask() {   
@@ -421,7 +673,12 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	            if(x>=8){
         	            	i2 = random.nextInt(2);
         	            	if (i2==0){
-        	            		cm.setText(command1);
+        	            		if(id%2==0){
+            	            		cm.setText(command1);
+            	            	}
+        	            		if(id%2==1){
+            	            		cm.setText(command2);
+            	            	}
         	            		label1.setIcon(new ImageIcon(""));
         	            		TimerTask task = new TimerTask() {   
             	             		public void run() {   
@@ -434,7 +691,13 @@ class MouseHandle2 extends JFrame implements MouseListener {
 
         	            	if (i2==1){
         	            		cm.setText("");
-        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1-1.jpg"));
+        	            		
+        	            		if(id%2==0){
+        	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
+            	            	}
+        	            		if(id%2==1){
+        	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
+            	            	}
         	            		TimerTask task = new TimerTask() {   
             	             		public void run() {   
             	             			label1.setIcon(new ImageIcon(""));
@@ -445,12 +708,19 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	            	}
         	            }
         	        }
-        	         else if (c == MouseEvent.BUTTON1) {// ?????????  
+        	         else if (c == MouseEvent.BUTTON3) {// ?????????  
         	            mouseInfo = "right"; 
         	            if(x==0|x==1|x==2|x==3){
         	            	cm.setText("");
-        	            	label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1-2.jpg"));
         	            	
+        	            	if(id%2==0){
+    	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
+        	            	}
+        	            	if(id%2==1){
+    	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
+        	            	}
+        	            	
+        	            
         	            	TimerTask task = new TimerTask() {   
         	             		public void run() {   
         	             			label1.setIcon(new ImageIcon(""));
@@ -461,7 +731,15 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	            }
         	            
         	            if(x==4|x==5|x==6|x==7){
+        	            	if(id%2==0){
         	            	cm.setText(command2);
+        	            	}
+        	            	
+        	            	if(id%2==1){
+            	            	cm.setText(command1);
+            	            	}
+        	            	
+        	            	
         	            	label1.setIcon(new ImageIcon(""));
         	            	
         	            	TimerTask task = new TimerTask() {   
@@ -480,7 +758,13 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	            	i2 = random.nextInt(2);
         	            	
         	            	if (i2==0){
-        	            		cm.setText(command2);
+        	            		if(id%2==0){
+                	            	cm.setText(command2);
+                	            	}
+        	            		if(id%2==1){
+                	            	cm.setText(command1);
+                	            	}
+        	            		
         	            		label1.setIcon(new ImageIcon(""));
         	            		
         	            		TimerTask task = new TimerTask() {   
@@ -495,8 +779,15 @@ class MouseHandle2 extends JFrame implements MouseListener {
 
         	            	if (i2==1){
         	            		cm.setText("");
-        	            		label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/g1-2.jpg"));
-        	            	
+        	            		if(id%2==0){
+        	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture2 + ".jpg"));
+                	      
+                	            	}
+        	            		
+        	            		if(id%2==1){
+        	            			label1.setIcon(new ImageIcon("/Users/mengyangwang/Documents/workspace/Experiment/src/" + gesture1 + ".jpg"));
+                	      
+                	            	}
         	            		TimerTask task = new TimerTask() {   
             	             		public void run() {   
             	             			label1.setIcon(new ImageIcon(""));
@@ -510,9 +801,9 @@ class MouseHandle2 extends JFrame implements MouseListener {
         	         }
         	  
         	         else {  mouseInfo = "middle"; }  
-    	        	
-    	  //      }
-  
+    	      //  }
+    	        
+    	        
     		   series[x]=start;
     		int   index = x%4;
 

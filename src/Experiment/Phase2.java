@@ -242,7 +242,6 @@ class MyMouseHandleFirstC extends JFrame implements MouseListener {
 	        	command=command1;
 	        	gesture="null";
 	        	
-	        	
 	        }
 	        
 	        if((int)List.get(index)==1){
